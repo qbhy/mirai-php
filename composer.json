@@ -1,0 +1,15 @@
+{
+    "name": "qbhy/mirai",
+    "authors": [
+        {
+            "name": "qbhy",
+            "email": "qbhy0715@qq.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Qbhy\\Mirai\\": "src/"
+        }
+    }
+}
