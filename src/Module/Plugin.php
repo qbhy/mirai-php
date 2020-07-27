@@ -1,6 +1,18 @@
 <?php
 
-namespace Qbhy\Mirai;
+declare(strict_types=1);
+/**
+ * This file is part of qbhy/mirai-php.
+ *
+ * @link     https://github.com/qbhy/.php_cs
+ * @document https://github.com/qbhy/.php_cs/blob/master/README.md
+ * @contact  qbhy0715@qq.com
+ * @license  https://github.com/qbhy/.php_cs/blob/master/LICENSE
+ */
+
+namespace Qbhy\Mirai\Module;
+
+use Qbhy\Mirai\Module;
 
 class Plugin extends Module
 {
@@ -17,9 +29,10 @@ class Plugin extends Module
     }
 
     /**
-     * 获取指定 session 的配置
+     * 获取指定 session 的配置.
      * @see https://github.com/project-mirai/mirai-api-http#%E8%8E%B7%E5%8F%96%E6%8C%87%E5%AE%9Asession%E7%9A%84%E9%85%8D%E7%BD%AE
      *
+     * @param mixed $sessionKey
      * @return array
      */
     public function config($sessionKey)
@@ -30,9 +43,12 @@ class Plugin extends Module
     }
 
     /**
-     * 设置指定 session 的配置
+     * 设置指定 session 的配置.
      * @see https://github.com/project-mirai/mirai-api-http#%E8%AE%BE%E7%BD%AE%E6%8C%87%E5%AE%9Asession%E7%9A%84%E9%85%8D%E7%BD%AE
      *
+     * @param mixed $sessionKey
+     * @param mixed $cacheSize
+     * @param mixed $enableWebsocket
      * @return array
      */
     public function setConfig($sessionKey, $cacheSize, $enableWebsocket)
@@ -43,9 +59,13 @@ class Plugin extends Module
     }
 
     /**
-     * 注册指令
+     * 注册指令.
      * @see https://github.com/project-mirai/mirai-api-http#%E6%B3%A8%E5%86%8C%E6%8C%87%E4%BB%A4
      *
+     * @param mixed $name
+     * @param mixed $alias
+     * @param mixed $description
+     * @param mixed $usage
      * @return array
      */
     public function registerCommand($name, $alias, $description, $usage)
@@ -58,9 +78,11 @@ class Plugin extends Module
     }
 
     /**
-     * 发送指令
+     * 发送指令.
      * @see https://github.com/project-mirai/mirai-api-http#%E5%8F%91%E9%80%81%E6%8C%87%E4%BB%A4
      *
+     * @param mixed $name
+     * @param mixed $args
      * @return array
      */
     public function sendCommand($name, $args)
@@ -73,9 +95,10 @@ class Plugin extends Module
     }
 
     /**
-     * 获取 managers
+     * 获取 managers.
      * @see https://github.com/project-mirai/mirai-api-http#%E8%8E%B7%E5%8F%96mangers
      *
+     * @param mixed $qq
      * @return array
      */
     public function managers($qq)

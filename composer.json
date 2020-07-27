@@ -7,11 +7,15 @@
         }
     ],
     "require": {
-        "hanson/foundation-sdk": "^4.0"
+        "hanson/foundation-sdk": "^4.0",
+        "nesbot/carbon": "^2.36"
     },
     "autoload": {
         "psr-4": {
             "Qbhy\\Mirai\\": "src/"
         }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.1"
     }
 }

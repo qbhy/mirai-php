@@ -1,11 +1,22 @@
 <?php
 
-namespace Qbhy\Mirai;
+declare(strict_types=1);
+/**
+ * This file is part of qbhy/mirai-php.
+ *
+ * @link     https://github.com/qbhy/.php_cs
+ * @document https://github.com/qbhy/.php_cs/blob/master/README.md
+ * @contact  qbhy0715@qq.com
+ * @license  https://github.com/qbhy/.php_cs/blob/master/LICENSE
+ */
+
+namespace Qbhy\Mirai\Module;
+
+use Qbhy\Mirai\Module;
 
 /**
- * @link https://github.com/project-mirai/mirai-api-http#%E8%AE%A4%E8%AF%81%E7%9B%B8%E5%85%B3
+ * @see https://github.com/project-mirai/mirai-api-http#%E8%AE%A4%E8%AF%81%E7%9B%B8%E5%85%B3
  * Class Auth
- * @package Qbhy\Mirai
  */
 class Auth extends Module
 {
@@ -26,6 +37,8 @@ class Auth extends Module
     /**
      * @see https://github.com/project-mirai/mirai-api-http#%E6%A0%A1%E9%AA%8Csession
      *
+     * @param mixed $session
+     * @param mixed $qq
      * @return array
      */
     public function verify($session, $qq)
@@ -38,10 +51,11 @@ class Auth extends Module
         );
     }
 
-
     /**
      * @see https://github.com/project-mirai/mirai-api-http#%E6%A0%A1%E9%AA%8Csession
      *
+     * @param mixed $session
+     * @param mixed $qq
      * @return array
      */
     public function release($session, $qq)
@@ -53,5 +67,4 @@ class Auth extends Module
             ])
         );
     }
-
 }

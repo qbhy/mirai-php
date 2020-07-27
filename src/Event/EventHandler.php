@@ -10,8 +10,9 @@ declare(strict_types=1);
  * @license  https://github.com/qbhy/.php_cs/blob/master/LICENSE
  */
 
-return [
-    'host' => 'http://localhost:8000',
+namespace Qbhy\Mirai\Event;
 
-    'auth_key' => 'your auth key',
-];
+class EventHandler
+{
+    protected $listen = [];
+}

@@ -1,11 +1,20 @@
 <?php
 
-namespace Qbhy\Mirai;
+declare(strict_types=1);
+/**
+ * This file is part of qbhy/mirai-php.
+ *
+ * @link     https://github.com/qbhy/.php_cs
+ * @document https://github.com/qbhy/.php_cs/blob/master/README.md
+ * @contact  qbhy0715@qq.com
+ * @license  https://github.com/qbhy/.php_cs/blob/master/LICENSE
+ */
+
+namespace Qbhy\Mirai\Message;
 
 /**
- * @link https://github.com/project-mirai/mirai-api-http/blob/master/MessageType.md
+ * @see https://github.com/project-mirai/mirai-api-http/blob/master/MessageType.md
  * Class MessageTypeConst
- * @package Qbhy\Mirai
  */
 class MessageTypeConst
 {
@@ -53,6 +62,11 @@ class MessageTypeConst
      * @see https://github.com/project-mirai/mirai-api-http/blob/master/MessageType.md#xml
      */
     const XML = 'Xml';
+
+    /**
+     * @see https://github.com/project-mirai/mirai-api-http/blob/master/MessageType.md#json
+     */
+    const JSON = 'Json';
 
     /**
      * @see https://github.com/project-mirai/mirai-api-http/blob/master/MessageType.md#app

@@ -1,18 +1,31 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * This file is part of qbhy/mirai-php.
+ *
+ * @link     https://github.com/qbhy/.php_cs
+ * @document https://github.com/qbhy/.php_cs/blob/master/README.md
+ * @contact  qbhy0715@qq.com
+ * @license  https://github.com/qbhy/.php_cs/blob/master/LICENSE
+ */
+
 namespace Qbhy\Mirai;
 
 use Hanson\Foundation\Foundation;
 use Hanson\Foundation\Http;
+use Qbhy\Mirai\Module\Auth;
+use Qbhy\Mirai\Module\Manager;
+use Qbhy\Mirai\Module\Message;
+use Qbhy\Mirai\Module\Plugin;
 
 /**
- * Class Bot
- * @package Qbhy\Mirai
- * @property-read Http $api
- * @property-read Plugin $plugin
- * @property-read Auth $auth
- * @property-read Manager $manager
- * @property-read Message $message
+ * Class Bot.
+ * @property Http $api
+ * @property Plugin $plugin
+ * @property Auth $auth
+ * @property Manager $manager
+ * @property Message $message
  */
 class Bot extends Foundation
 {
