@@ -1,5 +1,15 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * This file is part of qbhy/mirai-php.
+ *
+ * @link     https://github.com/qbhy/.php_cs
+ * @document https://github.com/qbhy/.php_cs/blob/master/README.md
+ * @contact  qbhy0715@qq.com
+ * @license  https://github.com/qbhy/.php_cs/blob/master/LICENSE
+ */
+
 namespace Qbhy\Mirai\Util;
 
 use Qbhy\Mirai\Message\App;
@@ -21,7 +31,7 @@ class MessageUtil
 {
     public static function fromArray(array $raw): MessageInterface
     {
-        if (isset($raw['type']) && isset(MessageTypeConst::CLASS_MAP[$raw['type']])) {
+        if (isset($raw['type'], MessageTypeConst::CLASS_MAP[$raw['type']])) {
             $targetClass = MessageTypeConst::CLASS_MAP[$raw['type']];
             return new $targetClass($raw);
         }
