@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Qbhy\Mirai\Module;
 
+use Qbhy\Mirai\Message\MessageInterface;
 use Qbhy\Mirai\Module;
 
 /**
@@ -29,6 +30,8 @@ class Message extends Module
      */
     public function sendFriendMessage($sessionKey, $target, array $messageChain)
     {
+        $messageChain = $this->resolveMessageChain($messageChain);
+
         return $this->decodeResponse(
             $this->http()->json('/sendFriendMessage', compact('sessionKey', 'target', 'messageChain'))
         );
@@ -44,6 +47,8 @@ class Message extends Module
      */
     public function sendTempMessage($sessionKey, $qq, $group, array $messageChain)
     {
+        $messageChain = $this->resolveMessageChain($messageChain);
+
         return $this->decodeResponse(
             $this->http()->json('/sendTempMessage', compact('sessionKey', 'group', 'qq', 'messageChain'))
         );
@@ -58,6 +63,8 @@ class Message extends Module
      */
     public function sendGroupMessage($sessionKey, $group, array $messageChain)
     {
+        $messageChain = $this->resolveMessageChain($messageChain);
+
         return $this->decodeResponse(
             $this->http()->json('/sendGroupMessage', compact('sessionKey', 'group', 'messageChain'))
         );
@@ -192,5 +199,12 @@ class Message extends Module
         return $this->decodeResponse(
             $this->http()->get('/countMessage', ['query' => compact('sessionKey')])
         );
+    }
+
+    protected function resolveMessageChain(array $messageChain)
+    {
+        return array_map(function ($message) {
+            return $message instanceof MessageInterface ? $message->toArray() : $message;
+        }, $messageChain);
     }
 }
