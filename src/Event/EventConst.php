@@ -18,6 +18,39 @@ namespace Qbhy\Mirai\Event;
  */
 class EventConst
 {
+    const CLASS_MAP = [
+        EventConst::BOT_ONLINE => BotOnlineEvent::class,
+        EventConst::BOT_ACTIVE_OFFLINE => BotActiveOfflineEvent::class,
+        EventConst::BOT_FORCE_OFFLINE => BotForceOfflineEvent::class,
+        EventConst::BOT_DROPPED_OFFLINE => BotDroppendOfflineEvent::class,
+        EventConst::BOT_RELOGIN => BotReloginEvent::class,
+        EventConst::GROUP_RECALL => GroupRecallEvent::class,
+        EventConst::FRIEND_RECALL => FriendRecallEvent::class,
+        EventConst::BOT_GROUP_PERMISSION_CHANGED => BotGroupPermissionChangeEvent::class,
+        EventConst::BOT_MUTE => BotMuteEvent::class,
+        EventConst::BOT_UNMUTE => BotUnmuteEvent::class,
+        EventConst::BOT_JOIN_GROUP => BotJoinGroupEvent::class,
+        EventConst::BOT_ACTIVE_LEAVE => BotActiveLeaveEvent::class,
+        EventConst::BOT_KICK_LEAVE => BotKickLeaveEvent::class,
+        EventConst::GROUP_NAME_CHANGED => GroupNameChangeEvent::class,
+        EventConst::GROUP_ENTRANCE_ANNOUNCEMENT_CHANGED => GroupEntranceAnnouncementChangeEvent::class,
+        EventConst::GROUP_MUTE_ALL => GroupMuteAllEvent::class,
+        EventConst::GROUP_ALLOW_ANONYMOUS_CHAT => GroupAllowAnonymousChatEvent::class,
+        EventConst::GROUP_ALLOW_CONFESS_TALK => GroupAllowConfessTalkEvent::class,
+        EventConst::GROUP_ALLOW_MEMBER_INVITE => GroupAllowMemberInviteEvent::class,
+        EventConst::MEMBER_JOIN => MemberJoinEvent::class,
+        EventConst::MEMBER_KICK_LEAVE => MemberKickLeaveEvent::class,
+        EventConst::MEMBER_QUIT_LEAVE => MemberQuitLeaveEvent::class,
+        EventConst::MEMBER_CARD_CHANGED => MemberCardChangeEvent::class,
+        EventConst::MEMBER_SPECIAL_TITLE_CHANGED => MemberSpecialTitleChangeEvent::class,
+        EventConst::MEMBER_PERMISSION_CHANGED => MemberPermissionChangeEvent::class,
+        EventConst::MEMBER_MUTE => MemberMuteEvent::class,
+        EventConst::MEMBER_UNMUTE => MemberUnmuteEvent::class,
+        EventConst::NEW_FRIEND_REQUEST => NewFriendRequestEvent::class,
+        EventConst::MEMBER_JOIN_REQUEST => MemberJoinRequestEvent::class,
+        EventConst::BOT_INVITED_JOIN_GROUP_REQUEST => BotInvitedJoinGroupRequestEvent::class,
+    ];
+
     /**
      * @see https://github.com/project-mirai/mirai-api-http/blob/master/EventType.md#bot%E7%99%BB%E5%BD%95%E6%88%90%E5%8A%9F
      */
