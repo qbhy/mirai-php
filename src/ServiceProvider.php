@@ -5,7 +5,7 @@ declare(strict_types=1);
  * This file is part of qbhy/mirai-php.
  *
  * @link     https://github.com/qbhy/mirai-php
- * @document https://github.com/qbhy/mirai-php/blob/master/README.md
+ * @document https://github.com/qbhy/mirai-php
  * @contact  qbhy0715@qq.com
  * @license  https://github.com/qbhy/mirai-php/blob/master/LICENSE
  */
@@ -17,6 +17,7 @@ use Hanson\Foundation\Http;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Qbhy\Mirai\Module\Auth;
+use Qbhy\Mirai\Module\EventHandler;
 use Qbhy\Mirai\Module\Manager;
 use Qbhy\Mirai\Module\Message;
 use Qbhy\Mirai\Module\Plugin;
@@ -45,6 +46,10 @@ class ServiceProvider implements ServiceProviderInterface
 
         $pimple['manager'] = function (Bot $bot) {
             return new Manager($bot);
+        };
+
+        $pimple['event'] = function (Bot $bot) {
+            return new EventHandler($bot);
         };
     }
 }

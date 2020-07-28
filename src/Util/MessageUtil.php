@@ -5,7 +5,7 @@ declare(strict_types=1);
  * This file is part of qbhy/mirai-php.
  *
  * @link     https://github.com/qbhy/mirai-php
- * @document https://github.com/qbhy/mirai-php/blob/master/README.md
+ * @document https://github.com/qbhy/mirai-php
  * @contact  qbhy0715@qq.com
  * @license  https://github.com/qbhy/mirai-php/blob/master/LICENSE
  */
@@ -29,7 +29,7 @@ use Qbhy\Mirai\Message\Xml;
 
 class MessageUtil
 {
-    public static function fromArray(array $raw): MessageInterface
+    public static function fromArray(array $raw): ?MessageInterface
     {
         if (isset($raw['type'], MessageTypeConst::CLASS_MAP[$raw['type']])) {
             $targetClass = MessageTypeConst::CLASS_MAP[$raw['type']];

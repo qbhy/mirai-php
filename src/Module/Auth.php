@@ -5,14 +5,12 @@ declare(strict_types=1);
  * This file is part of qbhy/mirai-php.
  *
  * @link     https://github.com/qbhy/mirai-php
- * @document https://github.com/qbhy/mirai-php/blob/master/README.md
+ * @document https://github.com/qbhy/mirai-php
  * @contact  qbhy0715@qq.com
  * @license  https://github.com/qbhy/mirai-php/blob/master/LICENSE
  */
 
 namespace Qbhy\Mirai\Module;
-
-use Qbhy\Mirai\Module;
 
 /**
  * @see https://github.com/project-mirai/mirai-api-http#%E8%AE%A4%E8%AF%81%E7%9B%B8%E5%85%B3

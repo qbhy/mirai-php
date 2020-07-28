@@ -5,7 +5,7 @@ declare(strict_types=1);
  * This file is part of qbhy/mirai-php.
  *
  * @link     https://github.com/qbhy/mirai-php
- * @document https://github.com/qbhy/mirai-php/blob/master/README.md
+ * @document https://github.com/qbhy/mirai-php
  * @contact  qbhy0715@qq.com
  * @license  https://github.com/qbhy/mirai-php/blob/master/LICENSE
  */
@@ -13,7 +13,6 @@ declare(strict_types=1);
 namespace Qbhy\Mirai\Module;
 
 use Qbhy\Mirai\Message\MessageInterface;
-use Qbhy\Mirai\Module;
 
 /**
  * @see https://github.com/project-mirai/mirai-api-http#%E6%B6%88%E6%81%AF%E7%9B%B8%E5%85%B3

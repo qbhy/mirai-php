@@ -5,7 +5,7 @@ declare(strict_types=1);
  * This file is part of qbhy/mirai-php.
  *
  * @link     https://github.com/qbhy/mirai-php
- * @document https://github.com/qbhy/mirai-php/blob/master/README.md
+ * @document https://github.com/qbhy/mirai-php
  * @contact  qbhy0715@qq.com
  * @license  https://github.com/qbhy/mirai-php/blob/master/LICENSE
  */
@@ -49,6 +49,11 @@ class EventConst
         EventConst::NEW_FRIEND_REQUEST => NewFriendRequestEvent::class,
         EventConst::MEMBER_JOIN_REQUEST => MemberJoinRequestEvent::class,
         EventConst::BOT_INVITED_JOIN_GROUP_REQUEST => BotInvitedJoinGroupRequestEvent::class,
+
+        // 消息事件 start
+        EventConst::FRIEND_MESSAGE => FriendMessageEvent::class,
+        EventConst::GROUP_MESSAGE => GroupMessageEvent::class,
+        EventConst::TEMP_MESSAGE => TempMessageEvent::class,
     ];
 
     /**
@@ -200,4 +205,10 @@ class EventConst
      * @see https://github.com/project-mirai/mirai-api-http/blob/master/EventType.md#bot%E8%A2%AB%E9%82%80%E8%AF%B7%E5%85%A5%E7%BE%A4%E7%94%B3%E8%AF%B7
      */
     const BOT_INVITED_JOIN_GROUP_REQUEST = 'BotInvitedJoinGroupRequestEvent'; // Bot被邀请入群申请
+
+    const FRIEND_MESSAGE = 'FriendMessage';
+
+    const GROUP_MESSAGE = 'GroupMessage';
+
+    const TEMP_MESSAGE = 'TempMessage';
 }

@@ -10,14 +10,14 @@ declare(strict_types=1);
  * @license  https://github.com/qbhy/mirai-php/blob/master/LICENSE
  */
 
-namespace Qbhy\Mirai\Message;
+namespace Qbhy\Mirai;
 
-class Xml extends AbstractMessage
+use Qbhy\Mirai\Event\EventInterface;
+use Qbhy\Mirai\Event\Listener;
+
+class DemoListener implements Listener
 {
-    protected $type = MessageTypeConst::XML;
-
-    public function xml()
+    public function handle(EventInterface $event)
     {
-        return $this->getRawValue('xml');
     }
 }
