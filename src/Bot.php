@@ -42,6 +42,11 @@ class Bot extends Foundation
         return $this->getConfig('host');
     }
 
+    public function getQQ()
+    {
+        return $this->getConfig('qq');
+    }
+
     public function getAuthKey()
     {
         return $this->getConfig('auth_key');

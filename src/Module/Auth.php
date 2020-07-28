@@ -35,34 +35,29 @@ class Auth extends Module
     /**
      * @see https://github.com/project-mirai/mirai-api-http#%E6%A0%A1%E9%AA%8Csession
      *
-     * @param mixed $session
+     * @param mixed $sessionKey
      * @param mixed $qq
      * @return array
      */
-    public function verify($session, $qq)
+    public function verify($sessionKey, $qq = null)
     {
+        $qq = $qq ?? $this->bot->getQQ();
         return $this->decodeResponse(
-            $this->http()->json('/verify', [
-                'sessionKey' => $session,
-                'qq' => $qq,
-            ])
+            $this->http()->json('/verify', compact('sessionKey', 'qq'))
         );
     }
 
     /**
      * @see https://github.com/project-mirai/mirai-api-http#%E6%A0%A1%E9%AA%8Csession
      *
-     * @param mixed $session
+     * @param mixed $sessionKey
      * @param mixed $qq
      * @return array
      */
-    public function release($session, $qq)
+    public function release($sessionKey, $qq)
     {
         return $this->decodeResponse(
-            $this->http()->json('/release', [
-                'sessionKey' => $session,
-                'qq' => $qq,
-            ])
+            $this->http()->json('/release', compact('qq', 'sessionKey'))
         );
     }
 }

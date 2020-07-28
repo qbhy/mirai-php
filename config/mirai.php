@@ -31,6 +31,11 @@ return [
     'auth_key' => 'your auth key',
 
     /*
+     * QQ号
+     */
+    'qq' => 'your qq',
+
+    /*
      * 支持一个事件多个监听器和一个监听器
      */
     'listeners' => [

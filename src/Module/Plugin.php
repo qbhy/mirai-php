@@ -83,7 +83,7 @@ class Plugin extends Module
      * @param mixed $args
      * @return array
      */
-    public function sendCommand($name, $args)
+    public function sendCommand($name, array $args)
     {
         $authKey = $this->bot->getAuthKey();
 
