@@ -1,5 +1,15 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * This file is part of qbhy/mirai-php.
+ *
+ * @link     https://github.com/qbhy/mirai-php
+ * @document https://github.com/qbhy/mirai-php/blob/master/README.md
+ * @contact  qbhy0715@qq.com
+ * @license  https://github.com/qbhy/mirai-php/blob/master/LICENSE
+ */
+
 namespace Qbhy\Mirai\Event;
 
 /**
@@ -9,7 +19,6 @@ namespace Qbhy\Mirai\Event;
  * @method string nick() 申请人的昵称或群名片
  * @method string message() 申请消息
  * Class NewFriendRequestEvent
- * @package Qbhy\Mirai\Event
  */
 class NewFriendRequestEvent extends AbstractEvent
 {

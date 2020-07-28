@@ -1,5 +1,15 @@
 <?php
 
+declare(strict_types=1);
+/**
+ * This file is part of qbhy/mirai-php.
+ *
+ * @link     https://github.com/qbhy/mirai-php
+ * @document https://github.com/qbhy/mirai-php/blob/master/README.md
+ * @contact  qbhy0715@qq.com
+ * @license  https://github.com/qbhy/mirai-php/blob/master/LICENSE
+ */
+
 namespace Qbhy\Mirai\Event;
 
 use Carbon\Carbon;
@@ -10,7 +20,6 @@ use Carbon\Carbon;
  * @method array group() 里面有 id name permission
  * @method array operator() 里面有 id memberName permission group,group同上
  * Class GroupRecallEvent
- * @package Qbhy\Mirai\Event
  */
 class GroupRecallEvent extends AbstractEvent
 {

@@ -1,14 +1,21 @@
 <?php
 
-namespace Qbhy\Mirai\Event;
+declare(strict_types=1);
+/**
+ * This file is part of qbhy/mirai-php.
+ *
+ * @link     https://github.com/qbhy/mirai-php
+ * @document https://github.com/qbhy/mirai-php/blob/master/README.md
+ * @contact  qbhy0715@qq.com
+ * @license  https://github.com/qbhy/mirai-php/blob/master/LICENSE
+ */
 
-use Carbon\Carbon;
+namespace Qbhy\Mirai\Event;
 
 /**
  * @method int durationSeconds() 禁言时长，单位为秒
  * @method array operator() 里面有 id memberName permission group:id name permission
  * Class BotMuteEvent
- * @package Qbhy\Mirai\Event
  */
 class BotMuteEvent extends AbstractEvent
 {

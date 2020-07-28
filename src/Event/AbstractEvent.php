@@ -24,6 +24,11 @@ abstract class AbstractEvent implements EventInterface
         $this->raw = $raw;
     }
 
+    public function __call($name, $arguments)
+    {
+        return $this->getRawValue($name, $arguments[0] ?? null);
+    }
+
     public function type(): string
     {
         return array_flip(EventConst::CLASS_MAP)[self::class];
@@ -37,10 +42,5 @@ abstract class AbstractEvent implements EventInterface
     public function getRawValue(string $key, $default = null)
     {
         return $this->raw[$key] ?? $default;
-    }
-
-    public function __call($name, $arguments)
-    {
-        return $this->getRawValue($name, $arguments[0] ?? null);
     }
 }

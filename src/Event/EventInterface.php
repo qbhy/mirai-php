@@ -16,5 +16,5 @@ interface EventInterface
 {
     public function type(): string;
 
-    public function toArray(): array ;
+    public function toArray(): array;
 }
