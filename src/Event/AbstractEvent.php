@@ -10,9 +10,9 @@ declare(strict_types=1);
  * @license  https://github.com/qbhy/mirai-php/blob/master/LICENSE
  */
 
-namespace Qbhy\Mirai\Message;
+namespace Qbhy\Mirai\Event;
 
-abstract class AbstractMessage implements MessageInterface
+abstract class AbstractEvent implements EventInterface
 {
     /**
      * @var array

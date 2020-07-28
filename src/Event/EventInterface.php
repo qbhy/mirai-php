@@ -10,9 +10,11 @@ declare(strict_types=1);
  * @license  https://github.com/qbhy/mirai-php/blob/master/LICENSE
  */
 
-namespace Qbhy\Mirai\Message;
+namespace Qbhy\Mirai\Event;
 
-class AtAll extends AbstractMessage
+interface EventInterface
 {
-    protected $type = MessageTypeConst::AT_ALL;
+    public function type(): string;
+
+    public function toArray(): array ;
 }
