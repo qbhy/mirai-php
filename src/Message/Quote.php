@@ -2,7 +2,7 @@
 
 namespace Qbhy\Mirai\Message;
 
-use Carbon\Carbon;
+use Qbhy\Mirai\Util\MessageUtil;
 
 class Quote extends AbstractMessage
 {
@@ -29,12 +29,12 @@ class Quote extends AbstractMessage
     }
 
     /**
-     * @return Plain[]
+     * @return Plain[]|MessageInterface[]
      */
     public function origin()
     {
         return array_map(function ($msg) {
-            return new Plain($msg);
+            return MessageUtil::fromArray($msg);
         }, $this->getRawValue('origin'));
     }
 }

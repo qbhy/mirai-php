@@ -18,6 +18,21 @@ namespace Qbhy\Mirai\Message;
  */
 class MessageTypeConst
 {
+    const CLASS_MAP = [
+        MessageTypeConst::APP => App::class,
+        MessageTypeConst::AT => At::class,
+        MessageTypeConst::AT_ALL => AtAll::class,
+        MessageTypeConst::FACE => Face::class,
+        MessageTypeConst::FLASH_IMAGE => FlashImage::class,
+        MessageTypeConst::IMAGE => Image::class,
+        MessageTypeConst::JSON => Json::class,
+        MessageTypeConst::PLAIN => Plain::class,
+        MessageTypeConst::POKE => Poke::class,
+        MessageTypeConst::QUOTE => Quote::class,
+        MessageTypeConst::SOURCE => Source::class,
+        MessageTypeConst::XML => Xml::class,
+    ];
+
     /**
      * @see https://github.com/project-mirai/mirai-api-http/blob/master/MessageType.md#source
      */

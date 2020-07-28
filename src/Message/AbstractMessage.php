@@ -29,7 +29,7 @@ abstract class AbstractMessage implements MessageInterface
 
     public function toArray(): array
     {
-        return $this->raw;
+        return array_merge($this->raw, ['type' => $this->type()]);
     }
 
     public function getRawValue(string $key, $default = null)
