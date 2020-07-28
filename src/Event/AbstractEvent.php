@@ -31,7 +31,7 @@ abstract class AbstractEvent implements EventInterface
 
     public function type(): string
     {
-        return array_flip(EventConst::CLASS_MAP)[self::class];
+        return array_flip(EventConst::CLASS_MAP)[static::class];
     }
 
     public function toArray(): array
