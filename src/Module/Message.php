@@ -27,8 +27,9 @@ class Message extends Module
      * @param mixed $target
      * @return array
      */
-    public function sendFriendMessage($sessionKey, $target, array $messageChain)
+    public function sendFriendMessage($target, array $messageChain, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         $messageChain = $this->resolveMessageChain($messageChain);
 
         return $this->decodeResponse(
@@ -44,8 +45,9 @@ class Message extends Module
      * @param mixed $group
      * @return array
      */
-    public function sendTempMessage($sessionKey, $qq, $group, array $messageChain)
+    public function sendTempMessage($qq, $group, array $messageChain, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         $messageChain = $this->resolveMessageChain($messageChain);
 
         return $this->decodeResponse(
@@ -60,8 +62,9 @@ class Message extends Module
      * @param mixed $group
      * @return array
      */
-    public function sendGroupMessage($sessionKey, $group, array $messageChain)
+    public function sendGroupMessage($group, array $messageChain, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         $messageChain = $this->resolveMessageChain($messageChain);
 
         return $this->decodeResponse(
@@ -79,8 +82,9 @@ class Message extends Module
      * @param mixed $qq
      * @return array
      */
-    public function sendImageMessage($sessionKey, $group, $qq, array $urls)
+    public function sendImageMessage($group, $qq, array $urls, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->json('/sendImageMessage', compact('sessionKey', 'group', 'qq', 'urls'))
         );
@@ -94,8 +98,9 @@ class Message extends Module
      * @param mixed $img
      * @return array
      */
-    public function uploadImage($sessionKey, $type, $img)
+    public function uploadImage($type, $img, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->json('/uploadImage', compact('sessionKey', 'type', 'img'))
         );
@@ -108,8 +113,9 @@ class Message extends Module
      * @param mixed $target
      * @return array
      */
-    public function recall($sessionKey, $target)
+    public function recall($target, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->json('/recall', compact('sessionKey', 'target'))
         );
@@ -122,8 +128,9 @@ class Message extends Module
      * @param mixed $count
      * @return array
      */
-    public function fetchMessage($sessionKey, $count)
+    public function fetchMessage($count, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->get('/fetchMessage', ['query' => compact('sessionKey', 'count')])
         );
@@ -136,8 +143,9 @@ class Message extends Module
      * @param mixed $count
      * @return array
      */
-    public function fetchLatestMessage($sessionKey, $count)
+    public function fetchLatestMessage($count, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->get('/fetchMessage', ['query' => compact('sessionKey', 'count')])
         );
@@ -150,8 +158,9 @@ class Message extends Module
      * @param mixed $count
      * @return array
      */
-    public function peekMessage($sessionKey, $count)
+    public function peekMessage($count, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->get('/peekMessage', ['query' => compact('sessionKey', 'count')])
         );
@@ -164,8 +173,9 @@ class Message extends Module
      * @param mixed $count
      * @return array
      */
-    public function peekLatestMessage($sessionKey, $count)
+    public function peekLatestMessage($count, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->get('/peekLatestMessage', ['query' => compact('sessionKey', 'count')])
         );
@@ -179,8 +189,9 @@ class Message extends Module
      * @param mixed $id
      * @return array
      */
-    public function messageFromId($sessionKey, $id)
+    public function messageFromId($id, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->get('/messageFromId', ['query' => compact('sessionKey', 'id')])
         );

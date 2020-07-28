@@ -33,8 +33,9 @@ class Plugin extends Module
      * @param mixed $sessionKey
      * @return array
      */
-    public function config($sessionKey)
+    public function config($sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->get('/config', ['query' => compact('sessionKey')])
         );
@@ -49,8 +50,9 @@ class Plugin extends Module
      * @param mixed $enableWebsocket
      * @return array
      */
-    public function setConfig($sessionKey, $cacheSize, $enableWebsocket)
+    public function setConfig($cacheSize, $enableWebsocket, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->json('/config', compact('sessionKey', 'cacheSize', 'enableWebsocket'))
         );

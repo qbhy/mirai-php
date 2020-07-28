@@ -19,6 +19,18 @@ namespace Qbhy\Mirai\Module;
 class Auth extends Module
 {
     /**
+     * 获取已经激活的sessionKey.
+     * @param null|mixed $qq
+     */
+    public function getSession($qq = null)
+    {
+        $sessionKey = $this->session()['session'];
+        $this->verify($sessionKey, $qq);
+
+        return $sessionKey;
+    }
+
+    /**
      * @see https://github.com/project-mirai/mirai-api-http#%E5%BC%80%E5%A7%8B%E4%BC%9A%E8%AF%9D-%E8%AE%A4%E8%AF%81authorize
      *
      * @return array

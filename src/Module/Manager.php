@@ -24,8 +24,9 @@ class Manager extends Module
      * @param mixed $sessionKey
      * @return array
      */
-    public function friendList($sessionKey)
+    public function friendList($sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->get('/friendList', ['query' => compact('sessionKey')])
         );
@@ -37,8 +38,9 @@ class Manager extends Module
      * @param mixed $sessionKey
      * @return array
      */
-    public function groupList($sessionKey)
+    public function groupList($sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->get('/groupList', ['query' => compact('sessionKey')])
         );
@@ -51,8 +53,9 @@ class Manager extends Module
      * @param mixed $target
      * @return array
      */
-    public function memberList($sessionKey, $target)
+    public function memberList($target, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->get('/memberList', ['query' => compact('sessionKey', 'target')])
         );
@@ -67,8 +70,9 @@ class Manager extends Module
      * @param mixed $target
      * @return array
      */
-    public function muteAll($sessionKey, $target)
+    public function muteAll($target, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->json('/muteAll', compact('sessionKey', 'target'))
         );
@@ -83,8 +87,9 @@ class Manager extends Module
      * @param mixed $target
      * @return array
      */
-    public function unmuteAll($sessionKey, $target)
+    public function unmuteAll($target, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->json('/unmuteAll', compact('sessionKey', 'target'))
         );
@@ -101,8 +106,9 @@ class Manager extends Module
      * @param mixed $time
      * @return array
      */
-    public function mute($sessionKey, $target, $memberId, $time = 60)
+    public function mute($target, $memberId, $time = 60, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->json('/mute', compact('sessionKey', 'target', 'memberId', 'time'))
         );
@@ -118,8 +124,9 @@ class Manager extends Module
      * @param mixed $memberId
      * @return array
      */
-    public function unmute($sessionKey, $target, $memberId)
+    public function unmute($target, $memberId, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->json('/unmute', compact('sessionKey', 'target', 'memberId'))
         );
@@ -136,8 +143,9 @@ class Manager extends Module
      * @param mixed $msg
      * @return array
      */
-    public function kick($sessionKey, $target, $memberId, $msg = '')
+    public function kick($target, $memberId, $msg = '', $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->json('/kick', compact('sessionKey', 'target', 'memberId', 'msg'))
         );
@@ -152,8 +160,9 @@ class Manager extends Module
      * @param mixed $target
      * @return array
      */
-    public function quit($sessionKey, $target)
+    public function quit($target, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->json('/quit', compact('sessionKey', 'target'))
         );
@@ -168,8 +177,9 @@ class Manager extends Module
      * @param mixed $target
      * @return array
      */
-    public function groupConfig($sessionKey, $target, array $config)
+    public function groupConfig($target, array $config, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->json('/groupConfig', compact('sessionKey', 'target', 'config'))
         );
@@ -184,8 +194,9 @@ class Manager extends Module
      * @param mixed $target
      * @return array
      */
-    public function getGroupConfig($sessionKey, $target)
+    public function getGroupConfig($target, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->get('/groupConfig', ['query' => compact('sessionKey', 'target')])
         );
@@ -201,8 +212,9 @@ class Manager extends Module
      * @param mixed $memberId
      * @return array
      */
-    public function memberInfo($sessionKey, $target, $memberId, array $info)
+    public function memberInfo($target, $memberId, array $info, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->json('/memberInfo', compact('sessionKey', 'target', 'memberId', 'info'))
         );
@@ -218,8 +230,9 @@ class Manager extends Module
      * @param mixed $memberId
      * @return array
      */
-    public function getMemberInfo($sessionKey, $target, $memberId)
+    public function getMemberInfo($target, $memberId, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->get('/memberInfo', ['query' => compact('sessionKey', 'target', 'memberId')])
         );
@@ -238,8 +251,9 @@ class Manager extends Module
      * @param mixed $message
      * @return array
      */
-    public function friendApply($sessionKey, $eventId, $fromId, $groupId, $operate, $message)
+    public function friendApply($eventId, $fromId, $groupId, $operate, $message, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->json(
                 '/resp/newFriendRequestEvent',
@@ -261,8 +275,9 @@ class Manager extends Module
      * @param mixed $message
      * @return array
      */
-    public function memberJoinApply($sessionKey, $eventId, $fromId, $groupId, $operate, $message)
+    public function memberJoinApply($eventId, $fromId, $groupId, $operate, $message, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->json(
                 '/resp/memberJoinRequestEvent',
@@ -284,8 +299,9 @@ class Manager extends Module
      * @param mixed $message
      * @return array
      */
-    public function invitedJoinGroup($sessionKey, $eventId, $fromId, $groupId, $operate, $message)
+    public function invitedJoinGroup($eventId, $fromId, $groupId, $operate, $message, $sessionKey = null)
     {
+        $sessionKey = $sessionKey ?? $this->bot->auth->getSession();
         return $this->decodeResponse(
             $this->http()->json(
                 '/resp/botInvitedJoinGroupRequestEvent',
