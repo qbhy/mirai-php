@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace Qbhy\Mirai;
 
+use Qbhy\Mirai\Message\MessageTypeConst;
 use Qbhy\Mirai\Message\Source;
 use Qbhy\Mirai\Util\MessageUtil;
 
@@ -40,5 +41,35 @@ class MessageChain
     public function getMessageChain()
     {
         return $this->messageChain;
+    }
+
+    /**
+     * 用于转发消息.
+     */
+    public function forward(): array
+    {
+        $messages = [];
+
+        foreach ($this->messageChain as $value) {
+            if ($value->type() === MessageTypeConst::SOURCE) {
+                continue;
+            }
+            $messages[] = $value->toArray();
+        }
+        return $messages;
+    }
+
+    /**
+     * 判断是否存在某个类型的消息.
+     * @param mixed $type
+     */
+    public function has($type): bool
+    {
+        foreach ($this->messageChain as $value) {
+            if ($value->type() === $type) {
+                return true;
+            }
+        }
+        return false;
     }
 }
