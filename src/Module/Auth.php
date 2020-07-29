@@ -18,14 +18,26 @@ namespace Qbhy\Mirai\Module;
  */
 class Auth extends Module
 {
+    protected $sessions = [];
+
     /**
      * 获取已经激活的sessionKey.
-     * @param null|mixed $qq
      */
-    public function getSession($qq = null)
+    public function getSession($qq = null, $refresh = false)
     {
+        if (is_bool($qq)) {
+            $refresh = $qq;
+            $qq = null;
+        }
+
+        if (isset($this->sessions[$qq]) && $refresh !== true && $qq !== true) {
+            return $this->sessions[$qq];
+        }
+
         $sessionKey = $this->session()['session'];
         $this->verify($sessionKey, $qq);
+
+        $this->sessions[$qq] = $sessionKey;
 
         return $sessionKey;
     }
@@ -47,8 +59,8 @@ class Auth extends Module
     /**
      * @see https://github.com/project-mirai/mirai-api-http#%E6%A0%A1%E9%AA%8Csession
      *
-     * @param mixed $sessionKey
-     * @param mixed $qq
+     * @param  mixed  $sessionKey
+     * @param  mixed  $qq
      * @return array
      */
     public function verify($sessionKey, $qq = null)
@@ -62,8 +74,8 @@ class Auth extends Module
     /**
      * @see https://github.com/project-mirai/mirai-api-http#%E6%A0%A1%E9%AA%8Csession
      *
-     * @param mixed $sessionKey
-     * @param mixed $qq
+     * @param  mixed  $sessionKey
+     * @param  mixed  $qq
      * @return array
      */
     public function release($sessionKey, $qq)
