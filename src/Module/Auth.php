@@ -22,6 +22,8 @@ class Auth extends Module
 
     /**
      * 获取已经激活的sessionKey.
+     * @param null|mixed $qq
+     * @param mixed $refresh
      */
     public function getSession($qq = null, $refresh = false)
     {
@@ -59,8 +61,8 @@ class Auth extends Module
     /**
      * @see https://github.com/project-mirai/mirai-api-http#%E6%A0%A1%E9%AA%8Csession
      *
-     * @param  mixed  $sessionKey
-     * @param  mixed  $qq
+     * @param mixed $sessionKey
+     * @param mixed $qq
      * @return array
      */
     public function verify($sessionKey, $qq = null)
@@ -74,8 +76,8 @@ class Auth extends Module
     /**
      * @see https://github.com/project-mirai/mirai-api-http#%E6%A0%A1%E9%AA%8Csession
      *
-     * @param  mixed  $sessionKey
-     * @param  mixed  $qq
+     * @param mixed $sessionKey
+     * @param mixed $qq
      * @return array
      */
     public function release($sessionKey, $qq)

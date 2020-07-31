@@ -13,6 +13,7 @@ declare(strict_types=1);
 namespace Qbhy\Mirai;
 
 use Qbhy\Mirai\Message\MessageTypeConst;
+use Qbhy\Mirai\Message\Plain;
 use Qbhy\Mirai\Message\Source;
 use Qbhy\Mirai\Util\MessageUtil;
 
@@ -57,6 +58,23 @@ class MessageChain
             $messages[] = $value->toArray();
         }
         return $messages;
+    }
+
+    /**
+     * 获取文摘.
+     * @return string
+     */
+    public function abstract()
+    {
+        $text = '';
+
+        foreach ($this->messageChain as $value) {
+            if ($value instanceof Plain) {
+                $text .= $value->text() ?? '';
+            }
+        }
+
+        return $text;
     }
 
     /**
